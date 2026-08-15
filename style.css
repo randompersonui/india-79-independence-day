@@ -1,0 +1,2172 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+}
+
+body {
+  background: #080b0d;
+  color: #f5f1e8;
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+
+  --saffron: #ff671f;
+  --green: #138808;
+  --blue: #06038d;
+
+  --dark: #080b0d;
+  --dark-two: #0e1215;
+
+  --cream: #f5f1e8;
+
+  --muted: #8f9290;
+
+  --border-dark: rgba(255, 255, 255, 0.13);
+
+  --display: "Playfair Display", serif;
+
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+  background: var(--saffron);
+  color: white;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 30px 5vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 100;
+
+}
+
+
+/* Logo */
+
+.logo {
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+}
+
+.logo strong {
+
+  color: var(--saffron);
+
+  font-size: 20px;
+
+  font-family: var(--display);
+
+}
+
+
+/* Navigation */
+
+.navbar nav {
+
+  display: flex;
+
+  gap: 40px;
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.5px;
+
+}
+
+.navbar nav a {
+
+  position: relative;
+
+  color: rgba(255, 255, 255, 0.6);
+
+  transition: color 0.3s ease;
+
+}
+
+.navbar nav a::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--saffron);
+
+  transition: width 0.3s ease;
+
+}
+
+.navbar nav a:hover {
+  color: white;
+}
+
+.navbar nav a:hover::after {
+  width: 100%;
+}
+
+
+/* Mobile menu */
+
+.menu-icon {
+
+  display: none;
+
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid rgba(255,255,255,.2);
+
+  background: transparent;
+
+  border-radius: 50%;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  cursor: pointer;
+
+}
+
+.menu-icon span {
+
+  width: 18px;
+  height: 1px;
+
+  background: white;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+  min-height: 100vh;
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(6, 3, 141, 0.15),
+      transparent 35%
+    ),
+
+    #080b0d;
+
+}
+
+
+/* =========================================================
+   HERO GRAIN
+========================================================= */
+
+.hero::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.045;
+
+  z-index: 5;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
+
+}
+
+
+/* =========================================================
+   HERO GLOW
+========================================================= */
+
+.hero-glow {
+
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  opacity: 0.13;
+
+  animation:
+    glowMove 10s ease-in-out infinite alternate;
+
+}
+
+.glow-saffron {
+
+  background: var(--saffron);
+
+  top: -400px;
+
+  left: 10%;
+
+}
+
+.glow-green {
+
+  background: var(--green);
+
+  right: 5%;
+
+  bottom: -450px;
+
+  animation-delay: -5s;
+
+}
+
+@keyframes glowMove {
+
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(100px, 80px);
+  }
+
+}
+
+
+/* =========================================================
+   ASHOKA CHAKRA
+========================================================= */
+
+.chakra {
+
+  position: absolute;
+
+  width: min(650px, 70vw);
+
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(55,75,130,.2);
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  animation:
+    rotateChakra 50s linear infinite;
+
+  opacity: 0.8;
+
+  background:
+
+    repeating-conic-gradient(
+      from 0deg,
+      transparent 0deg 9deg,
+      rgba(55,75,130,.16) 9deg 10deg
+    );
+
+}
+
+.chakra::before,
+.chakra::after {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 7%;
+
+  border: 1px solid rgba(55,75,130,.15);
+
+  border-radius: 50%;
+
+}
+
+.chakra::after {
+  inset: 15%;
+}
+
+.chakra-inner {
+
+  width: 28%;
+
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(55,75,130,.2);
+
+  border-radius: 50%;
+
+}
+
+@keyframes rotateChakra {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+
+  position: relative;
+
+  z-index: 10;
+
+  width: min(90%, 850px);
+
+  text-align: center;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.eyebrow {
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 4px;
+
+  color: rgba(255,255,255,.55);
+
+  text-transform: uppercase;
+
+}
+
+.eyebrow span {
+
+  display: inline-block;
+
+  width: 28px;
+  height: 1px;
+
+  background: var(--saffron);
+
+  margin-right: 12px;
+
+  vertical-align: middle;
+
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero h1 {
+
+  margin-top: 25px;
+
+  font-family: var(--display);
+
+  font-size: clamp(90px, 17vw, 220px);
+
+  line-height: .72;
+
+  letter-spacing: -10px;
+
+  font-weight: 700;
+
+  color: var(--cream);
+
+}
+
+.hero h1 span {
+
+  display: block;
+
+  font-size: .7em;
+
+  color: transparent;
+
+  -webkit-text-stroke:
+    1px rgba(255,255,255,.7);
+
+  margin-left: 100px;
+
+  letter-spacing: -8px;
+
+}
+
+
+/* =========================================================
+   HERO LINE
+========================================================= */
+
+.hero-line {
+
+  width: 100px;
+
+  height: 1px;
+
+  margin: 55px 0 30px;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      var(--saffron),
+      white,
+      var(--green)
+    );
+
+}
+
+
+/* =========================================================
+   HERO SUBTITLE
+========================================================= */
+
+.hero h2 {
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  letter-spacing: 7px;
+
+  font-weight: 500;
+
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.hero-description {
+
+  max-width: 420px;
+
+  margin-top: 20px;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   EXPLORE CTA
+========================================================= */
+
+.explore {
+
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  width: 220px;
+
+  height: 58px;
+
+  margin-top: 38px;
+
+  padding: 0 8px 0 22px;
+
+  border: 1px solid rgba(255,255,255,.22);
+
+  border-radius: 999px;
+
+  color: var(--cream);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 2px;
+
+  overflow: hidden;
+
+  transition:
+
+    border-color .35s ease,
+
+    transform .35s ease,
+
+    background .35s ease;
+
+}
+
+
+/* CTA background */
+
+.explore::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      rgba(255,103,31,.12),
+      rgba(255,255,255,.04),
+      rgba(19,136,8,.12)
+    );
+
+  opacity: 0;
+
+  transition: opacity .35s ease;
+
+}
+
+
+/* CTA label */
+
+.explore-label {
+
+  position: relative;
+
+  z-index: 2;
+
+  white-space: nowrap;
+
+}
+
+
+/* CTA arrow */
+
+.explore-arrow {
+
+  position: relative;
+
+  z-index: 2;
+
+  width: 42px;
+
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--cream);
+
+  color: var(--dark);
+
+  font-size: 18px;
+
+  line-height: 1;
+
+  transition:
+
+    transform .35s ease,
+
+    background .35s ease,
+
+    color .35s ease;
+
+}
+
+
+/* CTA hover */
+
+.explore:hover {
+
+  border-color: rgba(255,255,255,.5);
+
+  transform: translateY(-3px);
+
+}
+
+.explore:hover::before {
+  opacity: 1;
+}
+
+.explore:hover .explore-arrow {
+
+  transform: translateY(4px);
+
+  background: var(--saffron);
+
+  color: white;
+
+}
+
+
+/* CTA active */
+
+.explore:active {
+  transform: translateY(0);
+}
+
+
+/* Keyboard focus */
+
+.explore:focus-visible {
+
+  outline: 2px solid var(--saffron);
+
+  outline-offset: 5px;
+
+}
+
+
+/* =========================================================
+   HERO TIMELINE
+========================================================= */
+
+.hero-timeline {
+
+  position: absolute;
+
+  bottom: 70px;
+
+  left: 5vw;
+  right: 5vw;
+
+  display: flex;
+
+  align-items: center;
+
+  z-index: 10;
+
+}
+
+.timeline-year {
+
+  width: 50px;
+
+  color: rgba(255,255,255,.35);
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+  text-align: center;
+
+  transition:
+    color .3s ease,
+    transform .3s ease;
+
+}
+
+.timeline-year:hover {
+
+  color: white;
+
+  transform: translateY(-3px);
+
+}
+
+.timeline-year.active,
+.timeline-year.final {
+
+  color: white;
+
+}
+
+.timeline-line {
+
+  height: 1px;
+
+  flex: 1;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.3),
+      rgba(255,255,255,.1)
+    );
+
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.scroll-text {
+
+  position: absolute;
+
+  bottom: 25px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+
+  color: rgba(255,255,255,.3);
+
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+.section {
+
+  padding: 150px 8vw;
+
+}
+
+
+/* =========================================================
+   JOURNEY
+========================================================= */
+
+.journey {
+
+  background: #f2eee5;
+
+  color: #101312;
+
+}
+
+.section-heading {
+
+  display: grid;
+
+  grid-template-columns: 150px 1fr;
+
+  gap: 80px;
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding-bottom: 130px;
+
+}
+
+.section-number {
+
+  font-size: 10px;
+
+  color: #888;
+
+  letter-spacing: 2px;
+
+}
+
+.eyebrow.dark {
+  color: #777;
+}
+
+.section-heading h2 {
+
+  margin-top: 15px;
+
+  font-family: var(--display);
+
+  font-size: clamp(50px, 7vw, 90px);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+
+}
+
+.section-heading h2 em {
+
+  color: var(--saffron);
+
+  font-weight: 500;
+
+}
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+.history {
+
+  position: relative;
+
+  max-width: 1100px;
+
+  margin: auto;
+
+}
+
+.history::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 1px;
+
+  background: rgba(10,15,15,.18);
+
+  transform: translateX(-50%);
+
+}
+
+.history-item {
+
+  position: relative;
+
+  min-height: 500px;
+
+  display: grid;
+
+  grid-template-columns: 1fr 50px 1fr;
+
+  gap: 30px;
+
+  align-items: center;
+
+  scroll-margin-top: 40px;
+
+}
+
+.history-year {
+
+  font-family: var(--display);
+
+  font-size: clamp(45px, 6vw, 80px);
+
+  color: rgba(0,0,0,.08);
+
+  text-align: right;
+
+}
+
+.history-item.reverse .history-year {
+
+  grid-column: 3;
+
+  text-align: left;
+
+}
+
+.history-dot {
+
+  width: 12px;
+
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: var(--saffron);
+
+  border: 4px solid #f2eee5;
+
+  box-sizing: content-box;
+
+  z-index: 2;
+
+  justify-self: center;
+
+}
+
+.history-content {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 40px;
+
+}
+
+.history-item.reverse .history-content {
+
+  grid-column: 1 / 2;
+
+  grid-row: 1;
+
+  flex-direction: row-reverse;
+
+}
+
+.history-image {
+
+  width: 190px;
+
+  height: 260px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  padding: 20px;
+
+  color: white;
+
+  font-family: var(--display);
+
+  font-size: 35px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  filter: grayscale(100%);
+
+  transition:
+
+    filter .5s ease,
+
+    transform .5s ease;
+
+}
+
+.history-image:hover {
+
+  filter: grayscale(0%);
+
+  transform: translateY(-6px);
+
+}
+
+.history-image::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.7),
+      transparent
+    );
+
+}
+
+.history-image span {
+
+  position: relative;
+
+}
+
+.image-one {
+
+  background:
+    linear-gradient(
+      135deg,
+      #5b301c,
+      #b76d36,
+      #1f211e
+    );
+
+}
+
+.image-two {
+
+  background:
+    linear-gradient(
+      135deg,
+      #40372e,
+      #98846e,
+      #252525
+    );
+
+}
+
+.image-three {
+
+  background:
+    linear-gradient(
+      135deg,
+      #243746,
+      #b28a53,
+      #202322
+    );
+
+}
+
+.image-four {
+
+  background:
+    linear-gradient(
+      135deg,
+      #52392d,
+      #9b7148,
+      #262626
+    );
+
+}
+
+.image-five {
+
+  background:
+    linear-gradient(
+      135deg,
+      #1a2f49,
+      #f0eee3,
+      #174b2a
+    );
+
+}
+
+.history-text {
+
+  max-width: 260px;
+
+}
+
+.small-label {
+
+  font-size: 9px;
+
+  color: #888;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 12px;
+
+}
+
+.history-text h3 {
+
+  font-family: var(--display);
+
+  font-size: 30px;
+
+  line-height: 1.1;
+
+  margin-bottom: 15px;
+
+}
+
+.history-text p:last-child {
+
+  font-size: 12px;
+
+  line-height: 1.8;
+
+  color: #666;
+
+}
+
+
+/* =========================================================
+   VALUES
+========================================================= */
+
+.values {
+
+  background: #0b0e10;
+
+  padding-left: 12vw;
+
+  padding-right: 12vw;
+
+}
+
+.values-header {
+
+  max-width: 800px;
+
+  margin-bottom: 100px;
+
+}
+
+.values-header h2 {
+
+  margin-top: 15px;
+
+  font-family: var(--display);
+
+  font-size: clamp(60px, 9vw, 120px);
+
+  line-height: .9;
+
+  letter-spacing: -5px;
+
+}
+
+.values-header h2 em {
+
+  color: var(--saffron);
+
+  font-weight: 500;
+
+}
+
+.values-header > p:last-child {
+
+  max-width: 400px;
+
+  margin-top: 30px;
+
+  color: #777;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+}
+
+.values-list {
+
+  border-top: 1px solid var(--border-dark);
+
+}
+
+.value {
+
+  min-height: 150px;
+
+  display: grid;
+
+  grid-template-columns: 100px 1fr 50px;
+
+  align-items: center;
+
+  border-bottom: 1px solid var(--border-dark);
+
+  transition:
+    padding .4s ease,
+    background .4s ease;
+
+}
+
+.value:hover {
+
+  padding-left: 30px;
+
+  background: rgba(255,255,255,.025);
+
+}
+
+.value-number {
+
+  font-size: 10px;
+
+  color: #666;
+
+  letter-spacing: 2px;
+
+}
+
+.value h3 {
+
+  font-family: var(--display);
+
+  font-size: 38px;
+
+  font-weight: 500;
+
+  transition: color .3s ease;
+
+}
+
+.value:hover h3 {
+  color: var(--saffron);
+}
+
+.value p {
+
+  color: #777;
+
+  font-size: 12px;
+
+  margin-top: 6px;
+
+}
+
+.value-symbol {
+
+  font-size: 25px;
+
+  color: #444;
+
+  transition:
+    color .3s ease,
+    transform .3s ease;
+
+}
+
+.value:hover .value-symbol {
+
+  color: white;
+
+  transform: translate(5px, -5px);
+
+}
+
+
+/* =========================================================
+   INDIA TODAY
+========================================================= */
+
+.today {
+
+  position: relative;
+
+  background:
+
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(19,136,8,.15),
+      transparent 35%
+    ),
+
+    #10151a;
+
+  overflow: hidden;
+
+}
+
+.today-grid {
+
+  position: relative;
+
+  z-index: 3;
+
+  max-width: 1100px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 100px;
+
+}
+
+.today-heading h2 {
+
+  margin-top: 20px;
+
+  font-family: var(--display);
+
+  font-size: clamp(70px, 10vw, 130px);
+
+  line-height: .8;
+
+  letter-spacing: -5px;
+
+}
+
+.today-heading h2 em {
+
+  color: var(--green);
+
+  font-weight: 500;
+
+}
+
+.today-heading > p:last-child {
+
+  max-width: 300px;
+
+  margin-top: 35px;
+
+  color: #777;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+}
+
+.today-items {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 45px;
+
+}
+
+.today-item {
+
+  border-top: 1px solid rgba(255,255,255,.1);
+
+  padding-top: 20px;
+
+}
+
+.today-item span {
+
+  font-size: 9px;
+
+  color: #555;
+
+  letter-spacing: 2px;
+
+}
+
+.today-item h3 {
+
+  margin-top: 15px;
+
+  font-family: var(--display);
+
+  font-size: 38px;
+
+  font-weight: 500;
+
+}
+
+.today-item p {
+
+  margin-top: 8px;
+
+  max-width: 300px;
+
+  color: #777;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   FUTURE ORBIT
+========================================================= */
+
+.future-orbit {
+
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  right: -250px;
+
+  bottom: -300px;
+
+  opacity: .4;
+
+}
+
+.orbit {
+
+  position: absolute;
+
+  inset: 0;
+
+  border: 1px solid rgba(255,255,255,.1);
+
+  border-radius: 50%;
+
+}
+
+.orbit-one {
+  transform: rotate(25deg) scaleY(.35);
+}
+
+.orbit-two {
+  transform: rotate(-25deg) scaleY(.35);
+}
+
+.orbit-three {
+  transform: rotate(90deg) scaleY(.35);
+}
+
+.orbit-center {
+
+  position: absolute;
+
+  inset: 40%;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: rgba(255,255,255,.04);
+
+  backdrop-filter: blur(10px);
+
+}
+
+.orbit-center span {
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+
+}
+
+.orbit-center strong {
+
+  font-family: var(--display);
+
+  font-size: 35px;
+
+  color: var(--saffron);
+
+}
+
+
+/* =========================================================
+   FINAL SECTION
+========================================================= */
+
+.final-section {
+
+  min-height: 80vh;
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+
+    linear-gradient(
+      180deg,
+      #080b0d,
+      #121a15
+    );
+
+}
+
+.final-section h2 {
+
+  position: relative;
+
+  z-index: 2;
+
+  margin-top: 25px;
+
+  font-family: var(--display);
+
+  font-size: clamp(70px, 11vw, 150px);
+
+  line-height: .85;
+
+  letter-spacing: -5px;
+
+}
+
+.final-section h2 em {
+
+  color: var(--saffron);
+
+  font-weight: 500;
+
+}
+
+.final-section > p:last-child {
+
+  position: relative;
+
+  z-index: 2;
+
+  margin-top: 35px;
+
+  color: #777;
+
+  font-size: 14px;
+
+}
+
+.final-section > p:last-child span {
+  margin-left: 8px;
+}
+
+
+/* =========================================================
+   FINAL CHAKRA
+========================================================= */
+
+.final-chakra {
+
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  border-radius: 50%;
+
+  background:
+
+    repeating-conic-gradient(
+      rgba(50,80,150,.07) 0deg 1deg,
+      transparent 1deg 10deg
+    );
+
+  border: 1px solid rgba(50,80,150,.1);
+
+  animation:
+    rotateChakra 60s linear infinite;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+
+  padding: 40px 5vw;
+
+  background: #070909;
+
+  border-top: 1px solid rgba(255,255,255,.08);
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+
+  align-items: center;
+
+}
+
+.footer-logo {
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+}
+
+.footer-logo strong {
+
+  color: var(--saffron);
+
+  font-family: var(--display);
+
+  font-size: 20px;
+
+}
+
+footer p {
+
+  text-align: center;
+
+  color: #666;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+}
+
+footer > span {
+
+  text-align: right;
+
+  color: #444;
+
+  font-size: 10px;
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .navbar nav {
+    display: none;
+  }
+
+  .menu-icon {
+    display: flex;
+  }
+
+
+  /* HERO */
+
+  .hero h1 {
+    font-size: clamp(80px, 20vw, 150px);
+  }
+
+  .hero h1 span {
+    margin-left: 60px;
+  }
+
+  .chakra {
+    width: 90vw;
+  }
+
+
+  /* JOURNEY */
+
+  .section-heading {
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+  }
+
+  .history::before {
+
+    left: 20px;
+
+  }
+
+  .history-item,
+  .history-item.reverse {
+
+    display: grid;
+
+    grid-template-columns: 40px 1fr;
+
+    gap: 20px;
+
+    min-height: 550px;
+
+  }
+
+  .history-year,
+  .history-item.reverse .history-year {
+
+    grid-column: 1;
+
+    grid-row: 1;
+
+    writing-mode: vertical-rl;
+
+    text-align: left;
+
+    font-size: 35px;
+
+  }
+
+  .history-dot {
+
+    grid-column: 1;
+
+    grid-row: 1;
+
+    align-self: start;
+
+    margin-top: 20px;
+
+  }
+
+  .history-content,
+  .history-item.reverse .history-content {
+
+    grid-column: 2;
+
+    grid-row: 1;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 25px;
+
+  }
+
+  .history-image {
+
+    width: 100%;
+
+    max-width: 280px;
+
+    height: 300px;
+
+  }
+
+
+  /* TODAY */
+
+  .today-grid {
+
+    grid-template-columns: 1fr;
+
+    gap: 80px;
+
+  }
+
+  .future-orbit {
+
+    right: -400px;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .navbar {
+
+    padding: 22px 6vw;
+
+  }
+
+
+  /* HERO */
+
+  .hero {
+
+    min-height: 850px;
+
+    align-items: center;
+
+  }
+
+  .hero-content {
+
+    width: 90%;
+
+    padding-top: 30px;
+
+  }
+
+  .hero h1 {
+
+    font-size: 90px;
+
+    letter-spacing: -5px;
+
+  }
+
+  .hero h1 span {
+
+    margin-left: 35px;
+
+    letter-spacing: -4px;
+
+  }
+
+  .hero-line {
+
+    margin-top: 40px;
+
+  }
+
+  .hero h2 {
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+  }
+
+  .hero-description {
+
+    font-size: 12px;
+
+    max-width: 300px;
+
+  }
+
+
+  /* CTA */
+
+  .explore {
+
+    width: 205px;
+
+    height: 54px;
+
+    margin-top: 30px;
+
+    padding-left: 20px;
+
+    font-size: 9px;
+
+    letter-spacing: 1.7px;
+
+  }
+
+  .explore-arrow {
+
+    width: 38px;
+
+    height: 38px;
+
+    font-size: 16px;
+
+  }
+
+
+  /* TIMELINE */
+
+  .hero-timeline {
+
+    bottom: 55px;
+
+    left: 6vw;
+
+    right: 6vw;
+
+  }
+
+  .timeline-year {
+
+    width: 35px;
+
+    font-size: 8px;
+
+  }
+
+  .scroll-text {
+    display: none;
+  }
+
+
+  /* SECTIONS */
+
+  .section {
+
+    padding: 100px 7vw;
+
+  }
+
+  .section-heading {
+
+    padding-bottom: 80px;
+
+  }
+
+  .section-heading h2 {
+
+    font-size: 55px;
+
+    letter-spacing: -2px;
+
+  }
+
+
+  /* VALUES */
+
+  .values {
+
+    padding-left: 7vw;
+
+    padding-right: 7vw;
+
+  }
+
+  .values-header {
+
+    margin-bottom: 60px;
+
+  }
+
+  .values-header h2 {
+
+    font-size: 75px;
+
+    letter-spacing: -4px;
+
+  }
+
+  .value {
+
+    grid-template-columns: 45px 1fr 25px;
+
+    min-height: 130px;
+
+  }
+
+  .value:hover {
+
+    padding-left: 10px;
+
+  }
+
+  .value h3 {
+
+    font-size: 29px;
+
+  }
+
+  .value p {
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+  }
+
+
+  /* TODAY */
+
+  .today {
+
+    padding-top: 110px;
+
+    padding-bottom: 110px;
+
+  }
+
+  .today-heading h2 {
+
+    font-size: 85px;
+
+    letter-spacing: -5px;
+
+  }
+
+  .today-item h3 {
+
+    font-size: 30px;
+
+  }
+
+
+  /* FINAL */
+
+  .final-section {
+
+    min-height: 650px;
+
+  }
+
+  .final-section h2 {
+
+    font-size: 75px;
+
+    letter-spacing: -3px;
+
+  }
+
+  .final-chakra {
+
+    width: 450px;
+
+    height: 450px;
+
+  }
+
+
+  /* FOOTER */
+
+  footer {
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    text-align: center;
+
+  }
+
+  footer p,
+  footer > span {
+
+    text-align: center;
+
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .hero h1 {
+
+    font-size: 76px;
+
+  }
+
+  .hero h1 span {
+
+    margin-left: 25px;
+
+  }
+
+  .hero h2 {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+  }
+
+  .hero-description {
+
+    max-width: 270px;
+
+  }
+
+  .explore {
+
+    width: 195px;
+
+  }
+
+}
